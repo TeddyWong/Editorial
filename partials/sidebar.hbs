@@ -12,10 +12,11 @@
             </header>
 
             <div class="mini-posts">
-                {{#get "tags" limit="all" order="name"}}
+                {{#get "tags" limit="all" include='count.posts' order="name"}}
                 {{#foreach tags}}
                 <li>
-                    <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                    <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}
+                        ({{plural count.posts empty='posts' singular='% post' plural='% posts'}})</a>
                 </li>
                 {{/foreach}}
                 {{/get}}
